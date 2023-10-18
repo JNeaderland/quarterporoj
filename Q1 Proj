@@ -1,13 +1,1 @@
-"""
-create a mad-lib style game about a Jesuittopic.
-Write a program which must contain at least 100 lines of code (150 for groups of 2) and incorporate a
-minimum of 30 blanks (50 for groups of 2). Be sure to use comments in the program to help anyone reviewing
-the code understand how each part operates. Comments, blank lines, and unnecessary or logically repetitive
-lines of code will not contribute towards the overall program line count.
-"""
-#Author: Jacob Neaderland
 
-#Asking the user for words
-verbs = input("What are your 5 verbs?")
-nouns =
-adjs = 
