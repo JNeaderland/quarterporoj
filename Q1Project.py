@@ -6,7 +6,6 @@
 minrangev = int(2)
 verb = input("What are your 2 verbs? ")
 verbs = verb.split()
-print (verbs)
 #Loop to make sure the right number of words were given
 while len(verbs) < minrangev:
     verb = input("What are your 2 verbs? ")
@@ -18,7 +17,6 @@ verbf = verbs[0:2]
 minrangepv = int(1)
 verbp = input("What is your past tense verb? ")
 verbps = verbp.split()
-print (verbps)
 #Loop to make sure the right number of words were given
 while len(verbps) < minrangepv:
     verbp = input("What is your past tense verb? ")
@@ -30,7 +28,6 @@ verbpf = verbps[0:1]
 minrangeving = int(5)
 verbing = input("What are your 5 verbs ending in ing? ")
 verbings = verbing.split()
-print (verbings)
 #Loop to make sure the right number of words were given
 while len(verbings) < minrangeving:
     verbing = input("What are your 5 verbs ending in ing? ")
@@ -42,7 +39,6 @@ verbingf = verbings[0:5]
 minrangesn = int(12)
 snoun = input("What are your 12 nouns? ")
 snouns = snoun.split()
-print (snouns)
 #Loop to make sure the right number of words were given
 while len(snouns) < minrangesn:
     snoun = input("What are your 12 nouns? ")
