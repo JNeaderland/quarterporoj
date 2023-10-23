@@ -48,19 +48,21 @@ snounf = snouns[0:13]
 #plural nouns
 minrangepn = int(1)
 pnoun = input("What is your plural noun? ")
-pnouns = snoun.split()
-while len(pnouns) < minrangesn:
+pnouns = pnoun.split()
+while len(pnouns) < minrangepn:
     pnoun = input("What is your plural noun? ")
     pnouns = pnoun.split()
+    print (pnouns)
 pnounf = pnouns[0:1]
 
 #Adjectives
 minrangea = int(20)
 adj = input("What are your 20 adjectives? ")
 adjs = adj.split()
-while len(adjs) < minrangesn:
+while len(adjs) < minrangea:
     adj = input("What are your 20 adjectives? ")
     adjs = adj.split()
+    print (adjs)
 adjf = adjs[0:20]
 
 #Names
@@ -70,6 +72,7 @@ names = name.split()
 while len(names) < minrangena:
     name = input("What are your 2 names? ")
     names = name.split()
+    print (names)
 namesf = names[0:2]
 
 #I did not write this story, ChatGPT did
