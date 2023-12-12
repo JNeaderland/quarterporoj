@@ -1,35 +1,36 @@
 from random import seed
-from random import radint
-seed (1)
+from random import randint
+
+seed(1)
+
 wordlist = ["Pseudonym", "Sunshine", "Bicycle", "Serendipity", "Tornado", "Raspberry", "Harmony", "Fragrance", "Telescope", "Chocolate", "Adventure"]
-def hangman (word):
+
+def hangman(word):
+    word = word.lower()  # Convert the word to lowercase
     wordl = list(word)
     a = 0
     wrong = 0
-    dash = []
-    lenw = len(word)
-    while a != (len(word)-1):
-        a = a+1
-        for a in range(lenw):
-            dash.append("_")
-    print (dash)
-    while dash != wordl:
-        answer = input("What's your first guess? ")
-        wordf = word.find(answer)
-        if wordf != -1:
-            dash[wordf] = answer
-            del word[wordf]
-            while wordf != 1:
-                dash[wordf] = answer
-                del word[wordf]
+    dash = ["_"] * len(word)
+    print(dash)
+    while "_" in dash:
+        answer = input("What's your guess? ").lower()  # Convert the user input to lowercase
+        if len(answer) != 1:
+            print("Please enter only one letter.")
+            continue
+        if answer in word:
+            for i, letter in enumerate(word):
+                if letter == answer:
+                    dash[i] = answer
+            print(dash)
         else:
-            wrong = wrong + 1
+            wrong += 1
             if wrong == 7:
                 print("  O  ")
                 print(" /|\ ")
                 print("  |  ")
                 print("  /\ ")
-                print ("You lose!!!!")
+                print("You lose!!!!")
+                break
             elif wrong == 6:
                 print("  O  ")
                 print(" /|\ ")
@@ -50,6 +51,6 @@ def hangman (word):
                 print("  | ")
             elif wrong == 1:
                 print("  O  ")
-        print(dash)
-    print ("Congrats")
-hangman (wordlist[randint(0,9)])
+    print("Congrats")
+
+hangman(wordlist[randint(0,9)])
