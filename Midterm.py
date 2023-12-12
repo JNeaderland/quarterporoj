@@ -51,6 +51,6 @@ def hangman(word):
                 print("  | ")
             elif wrong == 1:
                 print("  O  ")
-    print("Congrats, the word was " randword)
+    print("Congrats, the word was ", randword, "!!!")
 
 hangman(randword)
