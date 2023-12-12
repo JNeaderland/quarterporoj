@@ -1,3 +1,7 @@
+from random import seed
+from random import radint
+seed (1)
+wordlist = ["Pseudonym", "Sunshine", "Bicycle", "Serendipity", "Tornado", "Raspberry", "Harmony", "Fragrance", "Telescope", "Chocolate", "Adventure"]
 def hangman (word):
     wordl = list(word)
     a = 0
@@ -14,7 +18,10 @@ def hangman (word):
         wordf = word.find(answer)
         if wordf != -1:
             dash[wordf] = answer
-            print (dash)
+            del word[wordf]
+            while wordf != 1:
+                dash[wordf] = answer
+                del word[wordf]
         else:
             wrong = wrong + 1
             if wrong == 7:
@@ -45,4 +52,4 @@ def hangman (word):
                 print("  O  ")
         print(dash)
     print ("Congrats")
-hangman ("Jacob")
+hangman (wordlist[randint(0,9)])
