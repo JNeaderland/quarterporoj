@@ -8,7 +8,6 @@ randword = wordlist[randint(0,9)]
 def hangman(word):
     word = word.lower()  # Convert the word to lowercase
     wordl = list(word)
-    a = 0
     wrong = 0
     dash = ["_"] * len(word)
     print(dash)
