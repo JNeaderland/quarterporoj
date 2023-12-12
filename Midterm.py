@@ -4,7 +4,7 @@ from random import randint
 seed(1)
 
 wordlist = ["Pseudonym", "Sunshine", "Bicycle", "Serendipity", "Tornado", "Raspberry", "Harmony", "Fragrance", "Telescope", "Chocolate", "Adventure"]
-
+randword = wordlist[randint(0,9)]
 def hangman(word):
     word = word.lower()  # Convert the word to lowercase
     wordl = list(word)
@@ -51,6 +51,6 @@ def hangman(word):
                 print("  | ")
             elif wrong == 1:
                 print("  O  ")
-    print("Congrats")
+    print("Congrats, the word was " randword)
 
-hangman(wordlist[randint(0,9)])
+hangman(randword)
