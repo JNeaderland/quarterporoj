@@ -3,33 +3,48 @@ from random import randint
 
 seed(1)
 
-wordlist = ["Pseudonym", "Sunshine", "Bicycle", "Serendipity", "Tornado", "Raspberry", "Harmony", "Fragrance", "Telescope", "Chocolate", "Adventure"]
+wordlist = ["pseudonym", "sunshine", "bicycle", "serendipity", "tornado", "raspberry", "harmony", "fragrance", "telescope", "chocolate", "adventure"]
 randword = wordlist[randint(0,9)]
+randword2 = wordlist[randint(0,9)]
+
 def hangman(word):
-    word = word.lower()  # Convert the word to lowercase
+    print(word)
     wordl = list(word)
+    a = 0
     wrong = 0
-    dash = ["_"] * len(word)
+    wordg = word
+    dash = []
+    lenw = len(word)
+    
+    for _ in range(lenw):
+        dash.append("_")
+    
     print(dash)
-    while "_" in dash:
-        answer = input("What's your guess? ").lower()  # Convert the user input to lowercase
-        if len(answer) != 1:
-            print("Please enter only one letter.")
-            continue
-        if answer in word:
-            for i, letter in enumerate(word):
-                if letter == answer:
-                    dash[i] = answer
+    
+    while dash != wordl:
+        guess = input("What's your guess? ")
+        wordf = word.find(guess)
+        
+        if wordf != -1:
+            dash[wordf] = guess
+            wordg = wordg.replace(guess, "-", 1)
+            print(wordg)
+            
+            while wordg.find(guess) != -1:
+                wordf = wordg.find(guess)
+                dash[wordf] = guess
+                wordg = wordg.replace(guess, "-", 1)
+                print(wordg)
+            
             print(dash)
         else:
-            wrong += 1
+            wrong = wrong + 1
             if wrong == 7:
                 print("  O  ")
                 print(" /|\ ")
                 print("  |  ")
                 print("  /\ ")
                 print("You lose!!!!")
-                break
             elif wrong == 6:
                 print("  O  ")
                 print(" /|\ ")
@@ -50,6 +65,8 @@ def hangman(word):
                 print("  | ")
             elif wrong == 1:
                 print("  O  ")
-    print("Congrats, the word was ", randword, "!!!")
-
+        
+        print(dash)
+    print("Congrats, the word was", randword, "!!!")
+    hangman (randword2)
 hangman(randword)
