@@ -1,0 +1,36 @@
+import turtle
+
+boxes = turtle.Turtle()
+window = turtle.Screen()
+window.screensize(1000, 1000)
+
+def make_box(x, y):
+    boxes.penup()
+    boxes.goto(x, y)
+    boxes.pendown()
+    for _ in range(4):
+        boxes.forward(115)
+        boxes.right(90)
+
+# Function to calculate center coordinates of each box
+def calculate_center(x, y, text, font):
+    width = turtle.textwidth(text, font=font)
+    height = font[1]  # Assuming font[1] represents font size
+    return x + (115 - width) / 2, y - (115 + height) / 2
+
+# Font style
+style = ('Courier', 50, 'italic')
+
+# Iterate through each box and let the user choose a letter
+for y_coord in range(300, -351, -125):
+    for x_coord in range(-350, 151, 125):
+        make_box(x_coord, y_coord)
+        user_input = turtle.textinput("Input", f"Enter a letter for this box at position ({x_coord}, {y_coord}): ").upper()
+        center_x, center_y = calculate_center(x_coord, y_coord, user_input, style)
+        turtle.penup()
+        turtle.goto(center_x, center_y)
+        turtle.write(user_input, align='center', font=style)
+        turtle.clear()  # Clear only the current Turtle instance's drawing
+
+turtle.hideturtle()
+window.mainloop()
