@@ -17,8 +17,8 @@ wordr = []
 wordc = []
 wordu = []
 words = ["House", "Water", "Chair", "Tiger", "Smile", "Earth", "Bread", "Dance", "Music", "Queen", "Apple", "Beach", "Grape", "Knife", "River", "Plant", "Happy", "Cloud", "Fruit", "Horse"]
-for x in words:
-    wordu.append(x.upper())
+for u in words:
+    wordu.append(u.upper())
 randword = wordu[randi]
 guess = 0
 fullwordguessed = 1
@@ -27,10 +27,21 @@ def make_box(x, y):
     boxes.penup()
     boxes.goto(x, y)
     boxes.pendown()
+    boxes.begin_fill()
     for _ in range(4):
         boxes.forward(115)
         boxes.right(90)
-
+    if wordg == randword:
+        fullwordguessed = 1
+    if fullwordguessed == 1:
+        boxes.fill('green')
+    else:
+        for letter in range(5):
+            find = randword.find(wordg[letter])
+            if find == -1:
+                boxes.fill('red')
+            else:
+                boxes.fill('yellow')
 # Function to calculate center coordinates of each box
 def calculate_center(x, y, text, font):
     width = leng
@@ -44,28 +55,18 @@ def LENGTH(Text) :
 style = ('Courier', 50, 'italic')
 
 # Iterate through each box and let the user choose a letter
-for y_coord in range(300, -351, -125):
-    for x_coord in range(-350, 151, 125):
-        make_box(x_coord, y_coord)
-        text = turtle.textinput("Input", f"Enter a letter for this box at position ({x_coord}, {y_coord}): ").upper()
+for y1 in range(300, -351, -125):
+    for x1 in range(-350, 151, 125):
+        make_box(x1, y1)
+        text = turtle.textinput("Input", f"Enter a letter for this box at position ({x1}, {y1}): ").upper()
         letters.append(text)
-        if len(letters)%5 == 0:
-            wordg = letters[guess : guess + 5]
-            for letter in range(5):
-                find = randword.find(wordg[letter])
-                if find == -1:
-                    wordw.append(wordg[letter])
-                elif find != letter:
-                    wordc.append(wordg[letter])
-                else:
-                    wordr.append(wordg[letter])
-            guess += 5
-            fullwordguessed += 1
-
-        center_x, center_y = calculate_center(x_coord - 5, y_coord - 15, text, style)
+        find = randword.find(wordg[text])
+        wordg = letters[guess : guess + 5]
+        center_x, center_y = calculate_center(x1 - 5, y1 - 15, text, style)
         turtle.penup()
         turtle.goto(center_x, center_y)
         turtle.write(text, align='center', font=style)
+      
 
 turtle.hideturtle()
 window.mainloop()
