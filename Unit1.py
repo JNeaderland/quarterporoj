@@ -1,30 +1,32 @@
 import tkinter as tk
 import turtle
 
+
 def open_lesson(lesson):
     root.destroy()  # Close the current window
     teatcher = turtle.Turtle()
     window = turtle.Screen()
-    if lesson == 1:
-        teatcher.write(lesson, move=False, align='center', font=('Arial', 20, 'normal'))
-    elif lesson == 2:
-        teatcher.write(lesson, move=False, align='center', font=('Arial', 20, 'normal'))
-    elif lesson == 3:
-        teatcher.write(lesson, move=False, align='center', font=('Arial', 20, 'normal'))
-    elif lesson == 4:
-        teatcher.write(lesson, move=False, align='center', font=('Arial', 20, 'normal'))
-    elif lesson == 5:
-        teatcher.write(lesson, move=False, align='center', font=('Arial', 20, 'normal'))
-    elif lesson == 6:
-        teatcher.write(lesson, move=False, align='center', font=('Arial', 20, 'normal'))
-    elif lesson == 7:
-        teatcher.write(lesson, move=False, align='center', font=('Arial', 20, 'normal'))
-    elif lesson == 8:
-        teatcher.write(lesson, move=False, align='center', font=('Arial', 20, 'normal'))
-    elif lesson == 9:
-        teatcher.write(lesson, move=False, align='center', font=('Arial', 20, 'normal'))
+    teatcher.hideturtle()
+    if lesson == "lesson 1":
+        teatcher.write("Identify mathematical information from graphical, numerical, \n analytical, and/or verbal representations.", move=False, align='center', font=('Arial', 20, 'normal'))
+    elif lesson == "lesson 2":
+        teatcher.write("Identify mathematical information from graphical, numerical, \n analytical, and/or verbal representations.", move=False, align='center', font=('Arial', 20, 'normal'))
+    elif lesson == "lesson 3":
+        teatcher.write("Identify mathematical information from graphical, numerical, \n analytical, and/or verbal representations.", move=False, align='center', font=('Arial', 20, 'normal'))
+    elif lesson == "lesson 4":
+        teatcher.write("Identify mathematical information from graphical, numerical, \n analytical, and/or verbal representations", move=False, align='center', font=('Arial', 20, 'normal'))
+    elif lesson == "lesson 5":
+        teatcher.write("Apply appropriate mathematical rules or procedures, \n with and without technology. ", move=False, align='center', font=('Arial', 20, 'normal'))
+    elif lesson == "lesson 6":
+        teatcher.write("Identify an appropriate mathematical \n rule or procedure based on \n the classification of a given expression \n (e.g., Use the chain rule to find \n the derivative of a composite function).", move=False, align='center', font=('Arial', 20, 'normal'))
+    elif lesson == "lesson 7":
+        teatcher.write("Identify an appropriate mathematical \n rule or procedure based on \n the classification of a given expression \n (e.g., Use the chain rule to find \n the derivative of a composite function).", move=False, align='center', font=('Arial', 20, 'normal'))
+    elif lesson == "lesson 8":
+        teatcher.write("Confirm whether hypotheses orconditions of a selected definition, \n theorem, or test have been satisfied.", move=False, align='center', font=('Arial', 20, 'normal'))
+    elif lesson == "lesson 9":
+        teatcher.write("Identify a re-expression of mathematical information \n presented in a given epresentation.", move=False, align='center', font=('Arial', 20, 'normal'))
     else:
-        teatcher.write(lesson, move=False, align='center', font=('Arial', 20, 'normal'))
+        teatcher.write("N/A", move=False, align='center', font=('Arial', 20, 'normal'))
         
 def make_button(parent, lesson, row, column):
     button = tk.Button(parent, text=lesson, command=lambda: open_lesson(lesson))
