@@ -2,23 +2,23 @@ import tkinter as tk
 
 def open_unit(unit):
     root.destroy()  # Close the current window
-    if unit == "a1":
+    if unit == "Unit 1":
         import Unit1
-    elif unit == "b2":
+    elif unit == "Unit 2":
         import Unit2
-    elif unit == "c3":
+    elif unit == "Unit 3":
         import Unit3
-    elif unit == "d4":
+    elif unit == "Unit 4":
         import Unit4
-    elif unit == "e5":
+    elif unit == "Unit 5":
         import Unit5
-    elif unit == "f6":
+    elif unit == "Unit 6":
         import Unit6
-    elif unit == "g7":
+    elif unit == "Unit 7":
         import Unit7
-    elif unit == "h8":
+    elif unit == "Unit 8":
         import Unit8
-    elif unit == "i9":
+    elif unit == "Unit 9":
         import Unit9
     else:
         import Unit10
